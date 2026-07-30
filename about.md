@@ -25,7 +25,8 @@ description: このサイトと書いている人について。
 
 行っているゼミ
 - D.Huybrechts, Fourier-Mukai Transform in Algebraic Geometry, 2025/10~
-- Gordon James & Martin Liebeck, Representations and characters of Groups, 2026/4~　　　　　　(指導教員：功刀直子先生）
+- Gordon James & Martin Liebeck, Representations and characters of Groups, 2026/4~
+  (指導教員：功刀直子先生）
 
 ## 連絡先(Twitter)
 
