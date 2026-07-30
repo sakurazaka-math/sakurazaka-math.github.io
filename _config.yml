@@ -11,7 +11,7 @@ timezone: Japan/Tokyo
 
 # 公開URL（リポジトリ名を変えたら README の「公開URLについて」を参照）
 url: "https://sakurazaka-math.github.io"
-baseurl: "/sakurazaka.github.io"
+baseurl: ""
 
 # トップページに表示する最新記事の件数
 recent_posts: 10
