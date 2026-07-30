@@ -1,0 +1,28 @@
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="site-title" href="{{ '/' | relative_url }}">
+      <svg class="site-title__mark" viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" focusable="false">
+        <g fill="currentColor">
+          <ellipse cx="12" cy="6.2" rx="3.1" ry="4.6"/>
+          <ellipse cx="12" cy="6.2" rx="3.1" ry="4.6" transform="rotate(72 12 12)"/>
+          <ellipse cx="12" cy="6.2" rx="3.1" ry="4.6" transform="rotate(144 12 12)"/>
+          <ellipse cx="12" cy="6.2" rx="3.1" ry="4.6" transform="rotate(216 12 12)"/>
+          <ellipse cx="12" cy="6.2" rx="3.1" ry="4.6" transform="rotate(288 12 12)"/>
+        </g>
+        <circle cx="12" cy="12" r="1.8" fill="var(--bg)"/>
+      </svg>
+      <span>
+        <span class="site-title__name">{{ site.title }}</span>
+        {%- if site.tagline %}<span class="site-title__tagline">{{ site.tagline }}</span>{% endif -%}
+      </span>
+    </a>
+
+    <nav class="site-nav" aria-label="サイト内メニュー">
+      {%- assign here = page.url | remove: 'index.html' -%}
+      <a href="{{ '/' | relative_url }}"{% if here == '/' %} aria-current="page"{% endif %}>ホーム</a>
+      <a href="{{ '/archive/' | relative_url }}"{% if here == '/archive/' %} aria-current="page"{% endif %}>アーカイブ</a>
+      <a href="{{ '/tags/' | relative_url }}"{% if here == '/tags/' %} aria-current="page"{% endif %}>タグ</a>
+      <a href="{{ '/about/' | relative_url }}"{% if here == '/about/' %} aria-current="page"{% endif %}>このサイトについて</a>
+    </nav>
+  </div>
+</header>

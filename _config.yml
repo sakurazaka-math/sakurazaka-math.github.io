@@ -1,0 +1,67 @@
+# ------------------------------------------------------------
+# サイトの基本設定
+# ここを書き換えるとサイト全体の表示が変わります
+# ------------------------------------------------------------
+title: 桜坂
+tagline: 日々のできごとを、すこしずつ。
+description: 毎日のできごとや、考えたことを書きためている日記です。
+author: coesato0721
+lang: ja
+timezone: Asia/Tokyo
+
+# 公開URL（リポジトリ名を変えたら README の「公開URLについて」を参照）
+url: "https://coesato0721-sketch.github.io"
+baseurl: "/sakurazaka.github.io"
+
+# トップページに表示する最新記事の件数
+recent_posts: 10
+
+# ------------------------------------------------------------
+# 記事のURL・本文の書式
+# ------------------------------------------------------------
+permalink: /diary/:year/:month/:day/:title/
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  # 日記では改行をそのまま改行として表示したいので true
+  hard_wrap: true
+  syntax_highlighter: rouge
+
+# 抜粋（トップページの数行）の区切り
+excerpt_separator: "<!--more-->"
+
+# ------------------------------------------------------------
+# プラグイン（GitHub Pages が標準で対応しているもののみ）
+# ------------------------------------------------------------
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+feed:
+  path: feed.xml
+
+# ------------------------------------------------------------
+# 既定値
+# ------------------------------------------------------------
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+  - scope:
+      path: ""
+    values:
+      layout: page
+
+# ------------------------------------------------------------
+# ビルド対象外
+# ------------------------------------------------------------
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .github

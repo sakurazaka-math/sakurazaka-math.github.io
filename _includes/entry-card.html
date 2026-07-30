@@ -1,0 +1,19 @@
+{%- assign post = include.post -%}
+<article class="entry-card">
+  <a class="entry-card__link" href="{{ post.url | relative_url }}">
+    <time class="entry-card__date" datetime="{{ post.date | date_to_xmlschema }}">
+      {{ post.date | date: "%Y年%-m月%-d日" }}（{{ post.date | date: "%a" | replace: "Mon","月" | replace: "Tue","火" | replace: "Wed","水" | replace: "Thu","木" | replace: "Fri","金" | replace: "Sat","土" | replace: "Sun","日" }}）
+    </time>
+    <h2 class="entry-card__title">{{ post.title }}</h2>
+    {%- if post.excerpt %}
+    <p class="entry-card__excerpt">{{ post.excerpt | strip_html | normalize_whitespace | truncate: 110 }}</p>
+    {%- endif %}
+  </a>
+  {%- if post.tags and post.tags.size > 0 %}
+  <ul class="tag-list">
+    {%- for tag in post.tags %}
+    <li><a class="tag" href="{{ '/tags/' | relative_url }}#tag-{{ tag | slugify: 'raw' | uri_escape }}">#{{ tag }}</a></li>
+    {%- endfor %}
+  </ul>
+  {%- endif %}
+</article>

@@ -1,0 +1,37 @@
+---
+layout: default
+title: タグ
+permalink: /tags/
+description: タグごとに日記をまとめたページです。
+---
+
+<h1 class="page-title">タグ</h1>
+
+{%- assign tags = site.tags | sort %}
+{%- if tags.size == 0 %}
+<p class="empty">まだタグがありません。記事の <code>tags:</code> にキーワードを書くと、ここにまとまります。</p>
+{%- else %}
+<p class="page-lead">全 {{ tags.size }} 個のタグ。気になる言葉から日記をたどれます。</p>
+
+<ul class="tag-cloud">
+  {%- for tag in tags %}
+  <li><a class="tag tag--lg" href="#tag-{{ tag[0] | slugify: 'raw' | uri_escape }}">#{{ tag[0] }}<span class="tag__count">{{ tag[1].size }}</span></a></li>
+  {%- endfor %}
+</ul>
+
+{%- for tag in tags %}
+<section class="tag-section" id="tag-{{ tag[0] | slugify: 'raw' | uri_escape }}">
+  <h2 class="tag-section__title">#{{ tag[0] }}<span class="archive-year__count">{{ tag[1].size }} 件</span></h2>
+  <ul class="archive-items">
+    {%- for post in tag[1] %}
+    <li class="archive-item">
+      <a href="{{ post.url | relative_url }}">
+        <span class="archive-item__date">{{ post.date | date: "%Y/%-m/%-d" }}</span>
+        <span class="archive-item__title">{{ post.title }}</span>
+      </a>
+    </li>
+    {%- endfor %}
+  </ul>
+</section>
+{%- endfor %}
+{%- endif %}

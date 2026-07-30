@@ -1,0 +1,40 @@
+---
+layout: default
+---
+<article class="post">
+  <header class="post__header">
+    <time class="post__date" datetime="{{ page.date | date_to_xmlschema }}">
+      {{ page.date | date: "%Y年%-m月%-d日" }}（{{ page.date | date: "%a" | replace: "Mon","月" | replace: "Tue","火" | replace: "Wed","水" | replace: "Thu","木" | replace: "Fri","金" | replace: "Sat","土" | replace: "Sun","日" }}）
+    </time>
+    <h1 class="post__title">{{ page.title }}</h1>
+    {%- if page.mood %}
+    <p class="post__mood">きょうの気分：{{ page.mood }}</p>
+    {%- endif %}
+    {%- if page.tags and page.tags.size > 0 %}
+    <ul class="tag-list">
+      {%- for tag in page.tags %}
+      <li><a class="tag" href="{{ '/tags/' | relative_url }}#tag-{{ tag | slugify: 'raw' | uri_escape }}">#{{ tag }}</a></li>
+      {%- endfor %}
+    </ul>
+    {%- endif %}
+  </header>
+
+  <div class="prose">
+    {{ content }}
+  </div>
+</article>
+
+<nav class="post-nav" aria-label="前後の日記">
+  {%- if page.previous %}
+  <a class="post-nav__item post-nav__item--prev" href="{{ page.previous.url | relative_url }}">
+    <span class="post-nav__label">前の日記</span>
+    <span class="post-nav__title">{{ page.previous.title }}</span>
+  </a>
+  {%- endif %}
+  {%- if page.next %}
+  <a class="post-nav__item post-nav__item--next" href="{{ page.next.url | relative_url }}">
+    <span class="post-nav__label">次の日記</span>
+    <span class="post-nav__title">{{ page.next.title }}</span>
+  </a>
+  {%- endif %}
+</nav>
