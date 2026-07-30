@@ -22,4 +22,4 @@ description: このサイトと書いている人について。
 
 ## 連絡先
 
-https://x.com/sakurazaka_math?s=11
+-X [桜坂](https://x.com/sakurazaka_math?s=11)
