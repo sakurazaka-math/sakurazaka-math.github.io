@@ -18,14 +18,14 @@ description: このサイトと書いている人について。
 ## 最近の活動
 
 2026
-- spm30th(有限群の表現論)
-- spmAd8th(双有理幾何）
-- 数学セミナー8月号執筆
-- 都内数学科学生集合8月総会講演(連接層の導来圏)
+- spm30th (有限群の表現論)
+- spmAd8th (双有理幾何）
+- 数学セミナー8月号執筆 (数学かるた)
+- 都内数学科学生集合8月総会講演 (連接層の導来圏)
 
 行っているゼミ
-- D.Huybrechts, Fourier-Mukai Transform in Algebraic Geometry,2025/10~
-- Gordon James & Martin Liebeck, Representations and characters of Groups, 2026/4~　(指導教員：功刀直子先生）
+- D.Huybrechts, Fourier-Mukai Transform in Algebraic Geometry, 2025/10~
+- Gordon James & Martin Liebeck, Representations and characters of Groups, 2026/4~ (指導教員：功刀直子先生）
 
 ## 連絡先(Twitter)
 
