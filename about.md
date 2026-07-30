@@ -5,7 +5,7 @@ permalink: /about/
 description: このサイトと書いている人について。
 ---
 
-数学者を夢見る一人の数学徒の活動記録です。気合い入れて書くことは[note](https://note.com/sakurazaka_math)　に書きます。
+数学者を夢見る一人の数学徒の活動記録です。気合い入れて書くことは[note](https://note.com/sakurazaka_math)に書きます。
 
 ## 自己紹介
 
