@@ -5,9 +5,9 @@
 title: 桜坂
 tagline: 日々のできごとを、すこしずつ。
 description: 毎日のできごとや、考えたことを書きためている日記です。
-author: coesato0721
-lang: ja
-timezone: Asia/Tokyo
+author: 桜坂
+lang: 日本語
+timezone: Japan/Tokyo
 
 # 公開URL（リポジトリ名を変えたら README の「公開URLについて」を参照）
 url: "https://coesato0721-sketch.github.io"
