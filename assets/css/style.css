@@ -267,7 +267,8 @@ a:hover { color: var(--accent); }
   color: var(--text-muted);
 }
 .prose img {
-  max-width: 420px;
+  max-width: min(100%, 420px);
+  height: auto;
   margin-inline: auto;
   border-radius: 10px;
   display: block;
