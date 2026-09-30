@@ -1,0 +1,33 @@
+{%- if site.posts.size > 0 %}
+<div id="archive-list" class="diary-browser">
+  {%- assign posts_by_year = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+  {%- for year in posts_by_year %}
+  <details class="archive-year" data-year="{{ year.name }}">
+    <summary class="archive-year__title">{{ year.name }}年<span class="archive-year__count">{{ year.items.size }} 件</span></summary>
+    <div class="archive-year__months">
+      {%- assign posts_by_month = year.items | group_by_exp: "post", "post.date | date: '%m'" %}
+      {%- for month in posts_by_month %}
+      <details class="archive-month" data-month="{{ month.name }}">
+        <summary class="archive-month__title">{{ month.name | plus: 0 }}月<span class="archive-year__count">{{ month.items.size }} 件</span></summary>
+        <ul class="archive-items">
+          {%- for post in month.items %}
+          <li class="archive-item" data-search="{{ post.title | downcase | escape }} {{ post.tags | join: ' ' | downcase | escape }} {{ post.date | date: '%Y年%-m月%-d日 %Y-%m-%d' }}">
+            <a href="{{ post.url | relative_url }}">
+              <time class="archive-item__date" datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%-d日" }}</time>
+              <span class="archive-item__title">{{ post.title | escape }}</span>
+            </a>
+            {%- if post.tags and post.tags.size > 0 %}
+            <span class="archive-item__tags">{% for tag in post.tags %}<span>#{{ tag | escape }}</span>{% endfor %}</span>
+            {%- endif %}
+          </li>
+          {%- endfor %}
+        </ul>
+      </details>
+      {%- endfor %}
+    </div>
+  </details>
+  {%- endfor %}
+</div>
+{%- else %}
+<p class="empty">まだ日記がありません。</p>
+{%- endif %}

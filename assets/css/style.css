@@ -100,7 +100,7 @@ a:hover { color: var(--accent); }
   box-shadow: var(--shadow);
 }
 
-:where(a, input, button):focus-visible {
+:where(a, input, button, summary):focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
   border-radius: 4px;
@@ -371,6 +371,47 @@ a:hover { color: var(--accent); }
   color: var(--text-muted);
 }
 .archive-item[hidden], .archive-month[hidden], .archive-year[hidden] { display: none; }
+
+/* 年 → 月 → 日付の順に開く日記一覧 */
+.diary-browser .archive-year {
+  margin-bottom: 1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.diary-browser summary {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  min-height: 48px;
+  margin: 0;
+  padding: .8rem 1rem;
+  border: 0;
+  border-radius: var(--radius);
+  cursor: pointer;
+  list-style: none;
+  color: var(--text);
+}
+.diary-browser summary::-webkit-details-marker { display: none; }
+.diary-browser summary::before {
+  content: '';
+  width: .5rem;
+  height: .5rem;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(-45deg);
+  flex: none;
+}
+.diary-browser details[open] > summary::before { transform: rotate(45deg); }
+.diary-browser summary:hover { background: var(--accent-soft); }
+.diary-browser .archive-year__count { margin-left: auto; white-space: nowrap; }
+.diary-browser .archive-year__months { padding: 0 .75rem .75rem; }
+.diary-browser .archive-month { margin: .25rem 0 0; }
+.diary-browser .archive-month__title { font-size: 1rem; font-weight: 600; }
+.diary-browser .archive-items { padding: 0 1rem .5rem; }
+.diary-browser .archive-item a { min-height: 44px; padding-block: .5rem; }
+.diary-browser .archive-item__title { overflow-wrap: anywhere; }
 
 /* ---------- そのほか ---------- */
 

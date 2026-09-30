@@ -9,10 +9,17 @@
   var items = Array.prototype.slice.call(root.querySelectorAll('.archive-item'));
   var months = Array.prototype.slice.call(root.querySelectorAll('.archive-month'));
   var years = Array.prototype.slice.call(root.querySelectorAll('.archive-year'));
+  var groups = years.concat(months);
+  var savedOpen = null;
 
   function apply() {
     var query = input.value.trim().toLowerCase();
     var shown = 0;
+
+    // 検索中は該当する年月を開き、検索を消したら元の選択に戻す。
+    if (query !== '' && savedOpen === null) {
+      savedOpen = groups.map(function (group) { return group.open; });
+    }
 
     items.forEach(function (item) {
       var hit = query === '' || (item.dataset.search || '').indexOf(query) !== -1;
@@ -21,11 +28,12 @@
     });
 
     // 中身が全部隠れた月・年の見出しも隠す
-    [months, years].forEach(function (groups) {
-      groups.forEach(function (group) {
-        group.hidden = group.querySelectorAll('.archive-item:not([hidden])').length === 0;
-      });
+    groups.forEach(function (group, index) {
+      group.hidden = group.querySelectorAll('.archive-item:not([hidden])').length === 0;
+      if (query !== '') group.open = !group.hidden;
+      else if (savedOpen !== null) group.open = savedOpen[index];
     });
+    if (query === '') savedOpen = null;
 
     if (query === '') {
       status.textContent = '';
