@@ -16,8 +16,19 @@ description:
 </section>
 
 <section>
-  <h2 class="section-title">日付から日記を探す</h2>
-  <p class="page-lead">年 → 月 → 日付の順に選ぶと、日記を読めます。</p>
-  {%- include diary-browser.html %}
-  <p class="more-link"><a href="{{ '/archive/' | relative_url }}">キーワードで日記を探す →</a></p>
+  <h2 class="section-title">最近の日記</h2>
+
+  {%- if site.posts.size == 0 %}
+  <p class="empty">まだ日記がありません。<code>_posts/</code> フォルダに記事を追加すると、ここに並びます。</p>
+  {%- else %}
+  <div class="entry-list">
+    {%- for post in site.posts limit: site.recent_posts %}
+    {%- include entry-card.html post=post %}
+    {%- endfor %}
+  </div>
+
+  {%- if site.posts.size > site.recent_posts %}
+  <p class="more-link"><a href="{{ '/archive/' | relative_url }}">すべての日記を見る（{{ site.posts.size }} 件）→</a></p>
+  {%- endif %}
+  {%- endif %}
 </section>
